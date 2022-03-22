@@ -1,4 +1,4 @@
-var nombre = 'hola';
+
 
 const fetchPokemon = () => {
     const pokeNameInput = document.getElementById("pokeName");
@@ -15,24 +15,38 @@ const fetchPokemon = () => {
         }
     }).then((data) => {
         if (data) {
-            nombre = pokeName
-            actualizarInfo(data)
+            
+            actualizarInfo(data);
           
         }
     });
 }
 
 function setDefault(){
-    document.getElementById("pokeImg").src = "./img/noEncontrado.jpg"
+    document.getElementById("pokeImg").src = "./img/noEncontrado.jpg";
 }
 
 
 function actualizarInfo(data) {
     console.log(data);
-    actuNombre()
+    actuNombre(data);
     actuImagen(data);
-    actuTipo(data)
+    actuTipo(data);
     mostrarStats(data);
+    mostrarHabilidades(data);
+}
+function mostrarHabilidades(data){
+    let listaHabi = data.abilities;
+    let divMovi = document.getElementById("cuadricula_movimientos");
+    divMovi.innerHTML = "";
+    let habiliadad;
+    for (let i = 0; i < listaHabi.length; i++) {
+        habiliadad = document.createElement("h5");
+        habiliadad.innerHTML = formatString(listaHabi[i].ability.name);
+        habiliadad.className = "habilidad"
+        divMovi.appendChild(habiliadad);
+    }
+    
 }
 
 function mostrarStats(data){
@@ -42,6 +56,12 @@ function mostrarStats(data){
     document.getElementById("special-attack").value = data.stats[3].base_stat;
     document.getElementById("special-defense").value = data.stats[4].base_stat;
     document.getElementById("speed").value = data.stats[5].base_stat;
+    document.getElementById("hp_num").innerHTML = data.stats[0].base_stat;
+    document.getElementById("attack_num").innerHTML = data.stats[1].base_stat;
+    document.getElementById("defense_num").innerHTML = data.stats[2].base_stat;
+    document.getElementById("special-attack_num").innerHTML = data.stats[3].base_stat;
+    document.getElementById("special-defense_num").innerHTML = data.stats[4].base_stat;
+    document.getElementById("speed_num").innerHTML = data.stats[5].base_stat;
 }
 
 function formatString(cadena){
@@ -59,7 +79,8 @@ function actuTipo(data) {
     etiTipo.innerHTML = "Tipo: "+ tipo;
     console.log()
 }
-function actuNombre(){
+function actuNombre(data){
+    let nombre = data.name
     const etiqueta = document.getElementById("nombrePokemon");
     nombre = formatString(nombre)
     etiqueta.innerHTML = "Nombre: "+nombre;

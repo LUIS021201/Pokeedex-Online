@@ -1,3 +1,7 @@
+*{
+    margin: 10px 0;
+}
+
 progress{
     transform: rotate(270deg);
     max-width: 50px;
@@ -27,7 +31,22 @@ body {
     background-size: 400% 400%;
     animation: gradiente 15s ease infinite;
 }
-
+#cuadricula_movimientos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.habilidad{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    color: aliceblue;
+    padding:20px;
+    font-weight: bold;
+    font-size: 20px;
+    border: 5px solid #0d0909;
+}
 @keyframes gradiente {
     0% {
         background-position: 0% 50%;
