@@ -1,29 +1,54 @@
+:root{
+    --rojoFondo:#ce1131;
+}
 *{
-    margin: 10px 0;
-}
-
-progress{
-    transform: rotate(270deg);
-    max-width: 50px;
-    padding: 20px 0px;
+    font-family: "Arial", serif;
 
 }
-.estadisticas{
-    display: flex;
-    justify-content: space-evenly;
-}
-.conte_estadis{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+#nombrePokemon{
+    text-align: center;
 }
 .pokedex{
+    background-color:var(--rojoFondo);
+    margin: 5%;
     display: flex;
     padding: 50px;
 }
 .pokedex__cara1,.pokedex__cara2{
     flex: 0 0 calc(50% );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+progress{
+    transform: rotate(270deg);
+    max-width: 80px;
+    padding: 30px 0px;
+    margin: 15% 0;
+
+}
+.estadisticas{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.conte_estadis{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+.stat_name{
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    font-size: smaller;
+    text-align: center;
+}
+
 body {
     margin: 0;
     width: 100%;
@@ -40,12 +65,12 @@ body {
     background-color: red;
     display: flex;
     justify-content: center;
-    border-radius: 50px;
+    border-radius: 10px;
     color: aliceblue;
     padding:20px;
     font-weight: bold;
     font-size: 20px;
-    border: 5px solid #0d0909;
+    border: 3px solid #0d0909;
 }
 @keyframes gradiente {
     0% {
@@ -57,4 +82,12 @@ body {
     100% {
         background-position: 0% 50%;
     }
+}
+@media (min-width:768px) {
+
+}
+img {
+    background-color: aliceblue;
+    border-radius: 20%;
+    border: 5px solid #0d0909;
 }
