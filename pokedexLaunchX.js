@@ -85,7 +85,7 @@ function actuNombre(data){
     const etiqueta = document.getElementById("nombrePokemon");
     nombre = formatString(nombre)
     
-    etiqueta.innerHTML = "#"+id+" - "+nombre;
+    etiqueta.innerHTML = "# "+id+" - "+nombre;
 }
 
 const actuImagen = (data) => {
